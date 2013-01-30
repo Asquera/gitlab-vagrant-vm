@@ -1,6 +1,12 @@
 Vagrant::Config.run do |config|
   config.vm.box = "precise32"
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+
+  # vagrant dns config
+  config.dns.tld = "dev"
+  config.vm.host_name = "gitlab"
+  config.dns.patterns = [/^.*gitlab.dev$/]
+
   config.vm.network :hostonly, '192.168.3.14'
   config.vm.customize ["modifyvm", :id, "--memory", 768]
 
