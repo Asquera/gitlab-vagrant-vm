@@ -1,5 +1,5 @@
 Vagrant::Config.run do |config|
-  config.vm.box = "gentoo_test"
+  config.vm.box = "precise32"
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
   # vagrant dns config
@@ -11,9 +11,9 @@ Vagrant::Config.run do |config|
   config.vm.customize ["modifyvm", :id, "--memory", 768]
 
   # Default user/group id for vagrant in precise32
-  host_user_id  = 1000
+  host_user_id = 1000
   host_group_id = 1000
-  
+
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ['cookbooks', 'site-cookbooks']
 
