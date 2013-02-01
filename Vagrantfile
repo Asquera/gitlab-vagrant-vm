@@ -46,6 +46,11 @@ Vagrant::Config.run do |config|
         },
         :global_gems => [{ :name => 'bundler'}]
       },
+      :openssh => {
+        :server => {
+          :accept_env => ["GIT_*", "LANG", "LC_*"]
+        }
+      },
       :mysql => {
         :server_root_password => "nonrandompasswordsaregreattoo",
         :server_repl_password => "nonrandompasswordsaregreattoo",
